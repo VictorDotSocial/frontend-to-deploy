@@ -7,14 +7,18 @@ function App() {
 
   useEffect(() => {
     console.log("ENV", process.env);
+    console.log("ENDPOINT", `${process.env.REACT_APP_API_BASE_URL}/test`);
     const getApiInfo = async () => {
-      const response = await fetch(`${process.env.BASE_URL}/test`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_BASE_URL}/test`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
 
       const parsedResponse = await response.json();
       setApiMessage(parsedResponse.message);
