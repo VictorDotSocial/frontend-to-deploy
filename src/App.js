@@ -6,6 +6,7 @@ function App() {
   const [apiMessage, setApiMessage] = useState("No ha cargado");
 
   useEffect(() => {
+    console.log("ENV", process.env);
     const getApiInfo = async () => {
       const response = await fetch(`${process.env.BASE_URL}/test`, {
         method: "GET",
